@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.example.demo.emtities.Order;
 import com.example.demo.emtities.User;
+import com.example.demo.emtities.enums.OrderStatus;
 import com.example.demo.repositories.OrderRepository;
 import com.example.demo.repositories.UserRepository;
 
@@ -30,9 +31,9 @@ public class TestConfig implements CommandLineRunner{
 	User u2 = new User(02, "Aline", "Aline@gmail.com", "54998473277", "50024");	
 
 	
-	Order o1 = new Order (01,Instant.parse("2021-06-23T18:54:07Z"),u1);
-	Order o2 = new Order (02,Instant.parse("2021-06-18T15:47:10Z"),u2);	
-	Order o3 = new Order (01,Instant.parse("2021-06-21T05:25:14Z"),u1);	
+	Order o1 = new Order (01,Instant.parse("2021-06-23T18:54:07Z"),OrderStatus.PAID, u1);
+	Order o2 = new Order (02,Instant.parse("2021-06-18T15:47:10Z"),OrderStatus.SHIPPED, u2);	
+	Order o3 = new Order (01,Instant.parse("2021-06-21T05:25:14Z"),OrderStatus.CANCELED, u1);	
 	
 	
   	userRepository.saveAll(Arrays.asList(u1,u2));
