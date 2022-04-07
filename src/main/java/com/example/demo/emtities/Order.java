@@ -28,7 +28,7 @@ public class Order implements Serializable{
 	 @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")                                                                                             //<<<Atributos basicos
 	private Instant moment;
 	 
-	 private Integer OrderStatus;
+	 private Integer orderStatus;
 
 	@ManyToOne
 	@JoinColumn(name ="client_id")
@@ -63,12 +63,12 @@ public class Order implements Serializable{
 
 	
 	public OrderStatus getOrderStatus() {
-		return OrderStatus.valueOf(OrderStatus);
+		return OrderStatus.valueOf(orderStatus);
 	}
 
 	public void setOrderStatus(OrderStatus orderStatus) {
 		if (orderStatus != null) {
-		this.OrderStatus = orderStatus.getCode();
+		this.orderStatus = orderStatus.getCode();
 	}
 	}
 	public User getClient() {
